@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { randomizeWord } from "../helpers/helper";
 import { alphabets } from "../constants/constants";
+import Progress from "./Progress";
 
 const Hangman = () => {
   const [word, setWord] = useState("");
@@ -15,7 +16,7 @@ const Hangman = () => {
 
   const maskWord = word
     .split("")
-    .map(() => "_")
+    .map((letter) => (corrects.includes(letter) ? letter : "_"))
     .join(" ");
 
   const onGuess = (letter: string) => {
@@ -50,6 +51,7 @@ const Hangman = () => {
           {letter}
         </button>
       ))}
+      <Progress fails={fails.length} />
     </div>
   );
 };
