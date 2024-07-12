@@ -1,7 +1,12 @@
 import "./App.css";
+import Hangman from "./components/Hangman";
 
 function App() {
-  return <div>Test</div>;
+  return (
+    <div>
+      <Hangman />
+    </div>
+  );
 }
 
 export default App;
