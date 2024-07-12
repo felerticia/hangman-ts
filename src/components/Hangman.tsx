@@ -26,6 +26,18 @@ const Hangman = () => {
     }
   };
 
+  useEffect(() => {
+    if (
+      corrects.length &&
+      word.split("").every((letter) => corrects.includes(letter))
+    )
+      console.log("win");
+  }, [corrects]);
+
+  useEffect(() => {
+    if (fails.length === 10) console.log("lose");
+  }, [fails]);
+
   return (
     <div>
       <p className="mask">{maskWord}</p>
